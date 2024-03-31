@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+      </style>
+   </head>
+   <body>
+     <h1>Find Sum</h1>
+    <p>
+    <label>No1: </label>
+    <input>
+    </p>
+    <p>
+        <label>No2: </label>
+        <input>
+    </p>
+    <p>
+        <input type="button" value="Sum" onclick="fn()">
+    </p>
+
+    <h1>
+        Result : <span></span>
+    </h1>
+    <script>
+    function fn() {
+      const no1Ref = document.querySelector("body > p:nth-child(2) > input");
+      const no2Ref = document.querySelector("body > p:nth-child(3) > input");
+      const resultRef = document.querySelector("body > h1:nth-child(5) > span");
+
+      const no1 = no1Ref.value;
+      const no2 = no2Ref['value']
+
+      const sum = parseInt(no1) + parseInt(no2)
+
+      no1Ref.value = "";
+      no2Ref.value = "";
+
+      resultRef.innerText = sum;
+
+      let color = "red"
+      if (sum > 100) {
+          color = "green"
+      }
+      resultRef.style.color = color;
+
+    }
+      </script>
+   </body>
+</html>

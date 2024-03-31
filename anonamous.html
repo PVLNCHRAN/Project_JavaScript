@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Function</title>
+</head>
+<body>
+    <button type="button" onclick="color('red')">Red</button>
+    <button type="button" onclick="color('blue')">Blue</button>
+    <div id="colour" style="width: 50%; height: 250px; border: 2px solid transparent; margin: 20px; border-radius: 20px;"></div>
+
+    <script>
+        function color(a){
+            if(a === 'red') {
+                red();
+            } else if(a === 'blue') {
+                blue();
+            }
+        }
+        function red(){
+            document.getElementById("colour").style.backgroundColor="red";
+        }
+        function blue(){
+            document.getElementById("colour").style.backgroundColor="blue";
+        }
+    </script>
+</body>
+</html>
+

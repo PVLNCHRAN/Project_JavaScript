@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoot Bubble</title>
+
+    <style>
+
+        .ground {
+            width: 600px;
+            height: 500px;
+            border: 2px solid red;
+            background-color: bisque;
+            position: relative;
+        }
+
+        #arrow {
+            border: 2px solid darkcyan;
+            width: 100px;
+            /* display: inline-block; */
+            position: absolute;
+            left: 0px;
+        }
+
+        .bubble {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        #b1 {
+            position: absolute;
+            top: 50px;
+            left: 350px;
+            background-color: rgb(209, 38, 112);
+        }
+
+        #b2 {
+            position: relative;
+            top: 220px;
+            left: 380px;
+            background-color: rgb(175, 124, 248);
+        }
+
+        #b3 {
+            position: absolute;
+            top: 375px;
+            left: 275px;
+            background-color: rgb(41, 230, 27);
+        }
+        #shoot{
+            display: none;
+            padding: 20px;
+            border: none;
+            margin: 20px;
+            top:20px;
+            background-color: black;
+            color: white;
+
+        }
+        #shoot:hover{
+            background-color: #f8f8f8;
+            color: black;
+        }
+        .score{
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="ground">
+
+            <div id="arrow"> </div>
+
+            <div id="b1" onclick="bubbleClicked()" style="border: 5px solid blue;" class="bubble"></div>
+            <!-- <div id="b2" onclick="bubbleClicked(event)" class="bubble"></div>
+            <div id="b3" onclick="bubbleClicked(event)" class="bubble"></div> -->
+
+        </div>
+        <button id="shoot" onclick="shoot()">Shoot</button>
+        <div class="score">
+            <div>Your Score is <span id="score">0</span></div>
+            <div>Chance left <span id="chance">3</span></div>
+        </div>
+    </div>
+</body>
+<script>
+   let arrowRef = document.getElementById('arrow')
+   let bubble1 = document.getElementById('b1')
+   let btn = 0
+   var count=fcount=scount=tcount =ftcount=stcount=ttcount = score = 0
+
+   function shoot(){
+       // console.log(`${count}px`)
+    let countRef=setInterval(function(){
+        arrowRef.style.left = `${count++}px`
+        if(count == 248){
+            bubble1.style.display="none"
+            document.getElementById("score").innerHTML=btn++
+            clearInterval(countRef)
+            count = 0;
+            arrowRef.style.left = `${count++}px`
+            arrowRef.style.top = `${count++}px`
+            if(btn == 1){
+                alert("Game is Over")
+            }
+
+        }
+     
+    },30)   
+   }
+
+   function bubbleClicked(){
+    // console.log("hello")
+    let countRef=setInterval(function(){
+        arrowRef.style.top = `${count++}px`
+        if(count == 100){
+            document.getElementById('shoot').style.display="block"
+            clearInterval(countRef)
+        }                
+    },30)
+
+   }   
+
+</script>
+
+</html>
